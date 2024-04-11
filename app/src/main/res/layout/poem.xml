@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@color/transparent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_poem_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="《》"
+            android:textColor="@color/black"
+            android:textSize="@dimen/poem_title_size"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/kaiti"/>
+
+        <TextView
+            android:id="@+id/tv_poem_wirter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="【唐】王之涣"
+            android:textColor="@color/black"
+            android:textSize="@dimen/poem_title_size"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/kaiti" />
+
+        <TextView
+            android:id="@+id/tv_poem_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/poem_sentence_size"
+            android:textStyle="bold"
+            android:lineSpacingExtra="8dp"
+            android:fontFamily="@font/kaiti"/>
+
+        <Button
+            android:id="@+id/btn_poem_select"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:background="@drawable/button3"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="选择"
+            android:textStyle="bold"
+            android:textSize="@dimen/poem_sentence_size"
+            android:fontFamily="@font/kaiti"
+            />
+        <!--        android:background="@drawable/button_selector"-->
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

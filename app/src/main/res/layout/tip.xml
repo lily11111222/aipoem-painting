@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/tip_width"
+    android:layout_height="@dimen/tip_height"
+    app:cardCornerRadius="100dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@color/shallow_yellow"
+    android:layout_gravity="center"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="小提示"
+            android:textColor="@color/black"
+            android:textSize="@dimen/poem_title_size"
+            android:gravity="center"
+            android:lineSpacingExtra="8dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/kaiti"
+            />
+        <LinearLayout
+            android:id="@+id/ll_tip"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/tip_girl"
+                android:scaleType="fitCenter"
+                />
+            <!--        <TextView-->
+            <!--            android:id="@+id/tv_tip_poem"-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_weight="3"-->
+            <!--            android:gravity="center"-->
+            <!--            android:fontFamily="@font/kaiti"-->
+            <!--            android:textColor="@color/grey" />-->
+            <include android:id="@+id/included"
+                layout="@layout/poem_noselect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
+            <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3">
+            <TextView
+                android:id="@+id/tv_tip"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:fontFamily="@font/kaiti"
+                android:textSize="@dimen/poem_sentence_size"
+                android:lineSpacingExtra="8dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                />
+            </ScrollView>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_tip_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="知道啦！"
+            android:background="@drawable/button_selector"
+            android:fontFamily="@font/kaiti"
+            android:textStyle="bold"
+            android:textSize="@dimen/poem_sentence_size"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/group0">
+        <item
+            android:id="@+id/menu_item1"
+            android:title="背景选择"/>
+
+        <item
+            android:id="@+id/menu_item2"
+            android:title="元素选择"/>
+        <item
+            android:id="@+id/menu_item3"
+            android:title="动作选择"/>
+    </group>
+
+</menu>

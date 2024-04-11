@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="shallow_white">#A8FDFDF4</color>
+    <color name="grey">#6C6B6B7F</color>
+    <color name="shallow_grey">#3C3F41</color>
+    <color name="transparent">#00000000</color>
+    <color name="not_so_transparent">#0000009F</color>
+    <color name="not_transparent2">#000000CF</color>
+    <color name="shallow_green">#67949E</color>
+    <color name="shallow_yellow">#D1CCC4</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bord_color">#FFFFFF</color>
+    <color name="gray">#27636465</color>
+    <color name="blue">#3088DF</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#1afa29</color>
+    <color name="yellow">#f4ea2a</color>
+    <color name="shallow_pink">#FDCBBF</color>
+    <color name="shallow_blue">#7F99B2</color>
+    <color name="shallow_brown">#A9837B</color>
+    <color name="shallow_red">#D28472</color>
+    <color name="bright_green">#99D3CE</color>
+    <color name="brone">#A35E39</color>
+</resources>

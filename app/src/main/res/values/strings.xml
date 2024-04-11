@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">爱诗画</string>
+    <string name="title">爱诗画</string>
+    <string name="poem_select">诗歌选择</string>
+    <string name="backgroud_option">背景选项</string>
+    <string name="backgroud_select">背景选择</string>
+    <string name="ai_background">AI背景生成</string>
+    <string name="item_select">素材选择</string>
+    <string name="action_select">动作添加</string>
+    <string name="action_set">运动规划</string>
+    <string name="dub">配音</string>
+    <string name="intro1">亲爱的小朋友你好！我们的诗词天地是一个动画创作平台，在这里你可以为你喜欢的诗歌创作你心目中的动画！\n创作有五个步骤：“选择诗歌-选择背景-选择素材-路径规划-生成动画”。\n接下来让我们进行第一步：\n选择一首你喜欢的诗歌来创作它的动画吧！</string>
+    <string name="intro2">嘿，小朋友！现在是第二步啦！\n在这里你要为动画选择或生成一副合适的背景~可以选择从素材库或本地寻找或利用AI生成哦！\n快去找找看吧，看看哪个图片最让你想到那首诗歌！</string>
+    <string name="intro3">嗨小朋友！你已经完成两步啦，你真棒！现在我们来到第三步！\n看左边那儿，有个特别的地方，叫做“意象栏”哦！里面有些特别有趣的东西，像古人、鸟、建筑物之类的。</string>
+    <string name="intro4">嗨，小朋友！现在是第四步了哦！\n首先，告诉我你想要动画播放多长时间呢？\n然后，对于每个意象，告诉我它们应该在动画中什么时候开始播放，以及播放多长时间哦。\n我们一起来设计一个美丽的动画吧！</string>
+    <string name="intro5">小朋友，你太棒啦！现在来到第五步了！\n现在让我们来为这个古诗词动画配个音\n完成一个完整的动画吧！</string>
+    <string name="intro6">嘿，小朋友！现在是第二步啦！\n在这里，你可以根据你对古诗的理解给出对其背景的描述，之后AI会为你生成一副精美的背景图！\n快去试试吧~</string>
+    <string name="intro7">你可以试试点击，它们就会出现在右边的画布上，你可以对画布上的它们进行拖拽和放缩哦\n，然后你需要点击左侧最上方的按钮，在画布上为它画出运动路径哦，就像在玩拼图一样。\n试试看，找找看哪些意象能够完美地融入到我们的画布中吧！</string>
+    <string name="type_select">素材类型选择</string>
+    <string name="type_static">动态/静态</string>
+
+</resources>

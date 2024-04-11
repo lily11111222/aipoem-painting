@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ani_sheep"
+    android:oneshot="false">
+    <item android:drawable="@drawable/sheep_01" android:duration="50" />
+    <item android:drawable="@drawable/sheep_02" android:duration="50" />
+    <item android:drawable="@drawable/sheep_03" android:duration="50" />
+    <item android:drawable="@drawable/sheep_04" android:duration="50" />
+    <item android:drawable="@drawable/sheep_05" android:duration="50" />
+    <item android:drawable="@drawable/sheep_06" android:duration="50" />
+    <item android:drawable="@drawable/sheep_07" android:duration="50" />
+    <item android:drawable="@drawable/sheep_08" android:duration="50" />
+    <item android:drawable="@drawable/sheep_09" android:duration="50" />
+    <item android:drawable="@drawable/sheep_10" android:duration="50" />
+    <item android:drawable="@drawable/sheep_11" android:duration="50" />
+    <item android:drawable="@drawable/sheep_12" android:duration="50" />
+    <item android:drawable="@drawable/sheep_13" android:duration="50" />
+    <item android:drawable="@drawable/sheep_14" android:duration="50" />
+    <item android:drawable="@drawable/sheep_15" android:duration="50" />
+    <item android:drawable="@drawable/sheep_16" android:duration="50" />
+    <item android:drawable="@drawable/sheep_17" android:duration="50" />
+</animation-list>

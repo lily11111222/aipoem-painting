@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_poem_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="《》"
+        android:textColor="@color/black"
+        android:textSize="@dimen/poem_title_size"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/kaiti"/>
+
+    <TextView
+        android:id="@+id/tv_poem_wirter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="【唐】王之涣"
+        android:textColor="@color/black"
+        android:textSize="@dimen/poem_title_size"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/kaiti" />
+
+    <TextView
+        android:id="@+id/tv_poem_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/poem_sentence_size"
+        android:textStyle="bold"
+        android:lineSpacingExtra="8dp"
+        android:fontFamily="@font/kaiti"/>
+
+    <!--        android:background="@drawable/button_selector"-->
+
+
+</LinearLayout>

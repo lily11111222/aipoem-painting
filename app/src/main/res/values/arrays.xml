@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_types">
+        <item>全部素材</item>
+        <item>人物素材</item>
+        <item>动物素材</item>
+        <item>植物素材</item>
+        <item>建筑/景色素材</item>
+        <item>手绘素材</item>
+    </string-array>
+    <string-array name="static_active">
+        <item>静态</item>
+        <item>动态</item>
+    </string-array>
+</resources>

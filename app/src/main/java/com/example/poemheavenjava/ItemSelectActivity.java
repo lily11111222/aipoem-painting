@@ -1,6 +1,5 @@
 package com.example.poemheavenjava;
 
-import static com.example.poemheavenjava.DrawingActivity.DRAW_BG;
 import static com.example.poemheavenjava.DrawingActivity.DRAW_ITEM;
 
 import android.content.Intent;
@@ -31,11 +30,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.poemheavenjava.entity.Item;
 import com.example.poemheavenjava.entity.Poem;
-import com.example.poemheavenjava.utils.DimenUtils;
 import com.example.poemheavenjava.utils.ToastUtil;
+import com.example.poemheavenjava.views.SimpleDoodleView;
 import com.google.android.material.navigation.NavigationView;
 import com.kongzue.dialogx.dialogs.CustomDialog;
-import com.kongzue.dialogx.dialogs.MessageDialog;
 import com.kongzue.dialogx.interfaces.OnBindView;
 
 import java.io.IOException;
@@ -106,40 +104,11 @@ public class ItemSelectActivity extends AppCompatActivity implements View.OnClic
 //        btn_delete.setOnClickListener(this);
         btn_tip.setOnClickListener(this);
         findViewById(R.id.btn_hand_draw).setOnClickListener(this);
+        findViewById(R.id.btn_local_upload).setOnClickListener(this);
+
 //        rl_bg.removeViewAt(rl_bg.getChildCount() - 1);
         // 设置下拉框选择
         setSpinner();
-    }
-
-    private void getHandDrawItem() {
-        if (mApp.getHandDrawItem() == null) return;
-        ImageView handDraw = new ImageView(this);
-        handDraw.setImageBitmap(mApp.getHandDrawItem());
-        //设置图片的位置
-        handDraw.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        //设置播放
-        //设置监听事件
-        handDraw.setOnClickListener(v -> {
-            if (flag == false){
-                ToastUtil.show(this, "请先画出其运动路径，再添加下一个素材");
-                return;
-            }
-            flag = false;
-            //设置”画运动路径“等按钮可用
-            setRouteButtonNotValid();
-            //在背景中添加一个新的view
-            ImageView copy_view = new ImageView(this);
-            copy_view.setImageDrawable(handDraw.getDrawable());
-            copy_view.setOnTouchListener(this);
-            //添加新视图
-            rl_bg.addView(copy_view, newParams);
-            Item item = new Item();
-            item.setAnimType(Item.animTypes.HANDDRAW);
-            item.setHandDrawable(handDraw.getDrawable());
-            setRoute(item, copy_view);
-            mApp.addAItem(item);
-        });
-        linear_layout.addView(handDraw,newParams);
     }
 
     private void setRouteButtonNotValid() {
@@ -179,7 +148,73 @@ public class ItemSelectActivity extends AppCompatActivity implements View.OnClic
         //开启能够调整子View的顺序
         rl_bg.addView(sdv, newParams);
         getHandDrawItem();
+        getGeneGif();
         setItems();
+    }
+
+    private void getHandDrawItem() {
+        if (mApp.getHandDrawItem() == null) return;
+        ImageView handDraw = new ImageView(this);
+        handDraw.setImageBitmap(mApp.getHandDrawItem());
+        //设置图片的位置
+        handDraw.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        //设置播放
+        //设置监听事件
+        handDraw.setOnClickListener(v -> {
+            if (flag == false){
+                ToastUtil.show(this, "请先画出其运动路径，再添加下一个素材");
+                return;
+            }
+            flag = false;
+            //设置”画运动路径“等按钮可用
+            setRouteButtonNotValid();
+            //在背景中添加一个新的view
+            ImageView copy_view = new ImageView(this);
+            copy_view.setImageDrawable(handDraw.getDrawable());
+            copy_view.setOnTouchListener(this);
+            //添加新视图
+            rl_bg.addView(copy_view, newParams);
+            Item item = new Item();
+            item.setAnimType(Item.animTypes.HANDDRAW);
+            item.setHandDrawable(handDraw.getDrawable());
+            item.setItem_name("手绘素材");
+            setRoute(item, copy_view);
+            mApp.addAItem(item);
+        });
+        linear_layout.addView(handDraw,newParams);
+    }
+
+    private void getGeneGif() {
+        if (mApp.getGeneGif() == null) return;
+        GifImageView gif_iv = new GifImageView(this);
+        gif_iv.setImageDrawable(mApp.getGeneGif());
+        //设置图片的位置
+        gif_iv.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        //设置播放
+        //设置监听事件
+        gif_iv.setOnClickListener(v -> {
+            if (flag == false){
+                ToastUtil.show(this, "请先画出其运动路径，再添加下一个素材");
+                return;
+            }
+            flag = false;
+            //设置”画运动路径“等按钮可用
+            setRouteButtonNotValid();
+            //在背景中添加一个新的view
+            GifImageView new_gif_v = new GifImageView(this);
+            new_gif_v.setImageDrawable(mApp.getGeneGif());
+            new_gif_v.setOnTouchListener(this);
+            //添加新视图
+            rl_bg.addView(new_gif_v, newParams);
+            Item item = new Item();
+            item.setAnimType(Item.animTypes.GENEGIF);
+            item.setGifDrawable(mApp.getGeneGif());
+            item.setItem_name("生成GIF素材");
+            setRoute(item, new_gif_v);
+            mApp.addAItem(item);
+        });
+       //把每一首item的视图添加到网格布局中
+        linear_layout.addView(gif_iv, newParams);
     }
 
     private void setItems() throws IOException {
@@ -335,6 +370,10 @@ public class ItemSelectActivity extends AppCompatActivity implements View.OnClic
 //            bg.setImageDrawable(mApp.getBackground());
             Intent intent = new Intent(this, DrawingActivity.class);
             intent.putExtra("flag", DRAW_ITEM);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        } else if (v.getId() == R.id.btn_local_upload) {
+            Intent intent = new Intent(this, AnimatedDrawingActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }
@@ -529,7 +568,7 @@ public class ItemSelectActivity extends AppCompatActivity implements View.OnClic
     public static final int PLANT_TYPE = 5;
     public static final int BUILD_TYPE = 6;
     public static final int HAND_DRAW = 7;
-    public static boolean hand_show = true;
+    public static boolean hand_gene_show = true;
     // 设置下拉框
     private void setSpinner() {
         spinner_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -552,13 +591,16 @@ public class ItemSelectActivity extends AppCompatActivity implements View.OnClic
                     case "建筑/景色素材":
                         type_flag = BUILD_TYPE;
                         break;
-                    case "手绘素材":
+                    case "手绘/上传素材":
                         type_flag = HAND_DRAW;
                 }
                 getItems();
                 try {
                     setTypeItems(type);
-                    if (hand_show) getHandDrawItem();
+                    if (hand_gene_show) {
+                        getHandDrawItem();
+                        getGeneGif();
+                    }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -570,7 +612,10 @@ public class ItemSelectActivity extends AppCompatActivity implements View.OnClic
                 getItems();
                 try {
                     setTypeItems(type);
-                    if (hand_show) getHandDrawItem();
+                    if (hand_gene_show) {
+                        getHandDrawItem();
+                        getGeneGif();
+                    }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -591,7 +636,10 @@ public class ItemSelectActivity extends AppCompatActivity implements View.OnClic
                 getItems();
                 try {
                     setTypeItems(type);
-                    if (hand_show) getHandDrawItem();
+                    if (hand_gene_show) {
+                        getHandDrawItem();
+                        getGeneGif();
+                    }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -603,7 +651,10 @@ public class ItemSelectActivity extends AppCompatActivity implements View.OnClic
                 getItems();
                 try {
                     setTypeItems(type);
-                    if (hand_show) getHandDrawItem();
+                    if (hand_gene_show) {
+                        getHandDrawItem();
+                        getGeneGif();
+                    }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -615,13 +666,13 @@ public class ItemSelectActivity extends AppCompatActivity implements View.OnClic
         type = new ArrayList<>();
         if (type_flag == HAND_DRAW) {
             type = new ArrayList<>();
-            hand_show = true;
+            hand_gene_show = true;
         } else {
             if (sta_dy_flag == ALL_TYPE) {
                 switch (type_flag) {
                     case ALL_TYPE:
                         type = Item.getAll_items();
-                        hand_show = true;
+                        hand_gene_show = true;
                         break;
                     case PEOPLE_TYPE:
                         type.addAll(Item.getPeople_active_items());
@@ -645,7 +696,7 @@ public class ItemSelectActivity extends AppCompatActivity implements View.OnClic
                         type.addAll(Item.getAnimal_static_items());
                         type.addAll(Item.getPlant_items());
                         type.addAll(Item.getOther_items());
-                        hand_show = true;
+                        hand_gene_show = true;
                         break;
                     case PEOPLE_TYPE:
                         type.addAll(Item.getPeople_static_items());

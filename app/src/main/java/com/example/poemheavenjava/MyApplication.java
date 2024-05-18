@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
+import pl.droidsonroids.gif.GifDrawable;
+
 public class MyApplication extends Application {
 
     private static final String TAG = "lily";
@@ -29,6 +31,7 @@ public class MyApplication extends Application {
     // 总动画时长
     private TimeUtil time;
     private Bitmap handDrawItem;
+    private GifDrawable geneGif;
 
 
     public static MyApplication getInstance(){
@@ -38,6 +41,14 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mApp = this;
+    }
+
+    public GifDrawable getGeneGif() {
+        return geneGif;
+    }
+
+    public void setGeneGif(GifDrawable geneGif) {
+        this.geneGif = geneGif;
     }
 
     public Bitmap getHandDrawItem() {

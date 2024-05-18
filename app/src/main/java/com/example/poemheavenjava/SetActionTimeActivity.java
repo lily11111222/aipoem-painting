@@ -8,9 +8,6 @@ import androidx.appcompat.widget.Toolbar;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
-import android.media.AudioFormat;
-import android.media.AudioRecord;
-import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -166,6 +163,17 @@ public class SetActionTimeActivity extends AppCompatActivity implements View.OnC
                 //设置位置和大小
                 iv.setImageMatrix(item.getMatrix());
                 gifDrawable.start();
+            } else if (item.getAnimType() == Item.animTypes.GENEGIF) {
+                //创建一个新的ImageView
+                //添加上每个Item
+                iv = new GifImageView(this);
+                // 设置Drawable
+                iv.setImageDrawable(item.getGifDrawable());
+                gif_v_list.add((GifImageView) iv);
+                //设置缩放类型
+                iv.setScaleType(ImageView.ScaleType.MATRIX);
+                //设置位置和大小
+                iv.setImageMatrix(item.getMatrix());
             } else {
                 //创建一个新的ImageView
                 //添加上每个Item

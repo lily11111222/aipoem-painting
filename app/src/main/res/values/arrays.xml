@@ -6,7 +6,7 @@
         <item>动物素材</item>
         <item>植物素材</item>
         <item>建筑/景色素材</item>
-        <item>手绘素材</item>
+        <item>手绘/上传素材</item>
     </string-array>
     <string-array name="static_active">
         <item>静态</item>

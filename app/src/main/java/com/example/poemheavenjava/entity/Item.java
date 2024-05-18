@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import pl.droidsonroids.gif.GifDrawable;
+
 
 public class Item {
     private final static String TAG = "lily";
@@ -20,7 +22,7 @@ public class Item {
     private String item_name;
     // 在布局中的位置和大小
     private Matrix matrix = new Matrix();
-    public static enum animTypes {STATIC, ANIMATION, GIF, HANDDRAW};
+    public static enum animTypes {STATIC, ANIMATION, GIF, HANDDRAW, GENEGIF};
     // 是否是动态的
     private animTypes animType ;
     // 活动轨迹
@@ -28,7 +30,15 @@ public class Item {
     // 活动开始时间
     private TimeUtil startTime = new TimeUtil(0, 0);
     private Drawable handDrawable;
+    private GifDrawable gifDrawable;
 
+    public GifDrawable getGifDrawable() {
+        return gifDrawable;
+    }
+
+    public void setGifDrawable(GifDrawable gifDrawable) {
+        this.gifDrawable = gifDrawable;
+    }
 
     public Drawable getHandDrawable() {
         return handDrawable;

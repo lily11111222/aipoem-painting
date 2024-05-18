@@ -598,5 +598,46 @@ public class DrawingBoardView extends SurfaceView {
         }
         return bitmap;
     }
+
+    public Bitmap saveToBitmapWithWhiteBack() {
+        Bitmap bitmap = Bitmap.createBitmap(this.getWidth(), this.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        canvas.drawColor(Color.WHITE);
+        try {
+            if (canvas != null) {
+                for (int i = 0; i < paintPaths.size(); i++) {
+                    canvas.drawPath(paintPaths.get(i), paints.get(i));
+                }
+
+                for (int i = 0; i < trianglePaths.size(); i++) {
+                    canvas.drawPath(trianglePaths.get(i), trianglePaints.get(i));
+                }
+                for (int i = 0; i < circleList.size(); i++) {
+                    canvas.drawCircle(circleList.get(i).getPointX(), circleList.get(i).getPointY(), circleList.get(i).getRadius(), circlePaints.get(i));
+                }
+                for (int i = 0; i < ovals.size(); i++) {
+                    canvas.drawOval(ovals.get(i), ovalPaints.get(i));
+                }
+
+                for (int i = 0; i < triangleTowerPaths.size(); i++) {
+                    canvas.drawPath(triangleTowerPaths.get(i), triangleTowerPaints.get(i));
+                }
+                for (int i = 0; i < equilateralPaths.size(); i++) {
+                    canvas.drawPath(equilateralPaths.get(i), equilateralPaints.get(i));
+                }
+                for (int i = 0; i < anglePaths.size(); i++) {
+                    canvas.drawPath(anglePaths.get(i), anglePaints.get(i));
+                }
+
+                for (int i = 0; i < fillPaths.size(); i++) {
+                    canvas.drawPath(fillPaths.get(i), fillPaints.get(i));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+        }
+        return bitmap;
+    }
 }
 

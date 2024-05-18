@@ -70,4 +70,5 @@ dependencies {
 //    implementation("com.kongzue.dialogx:DialogX:0.0.48")
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
     implementation("com.kongzue.dialogx:DialogX:0.0.49")
+    implementation("com.google.code.gson:gson:2.10.1")
 }

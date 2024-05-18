@@ -22,13 +22,15 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true"
-        android:requestLegacyExternalStorage="true"
         tools:targetApi="31">
-
+        <activity
+            android:name=".AnimatedDrawingActivity"
+            android:exported="false" />
         <activity
             android:name=".AnimationRequestActivity"
             android:exported="false" />
@@ -65,7 +67,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BackgroundSelectActivity2" />
+        <activity android:name=".BackgroundSelectActivity" />
     </application>
 
 </manifest>

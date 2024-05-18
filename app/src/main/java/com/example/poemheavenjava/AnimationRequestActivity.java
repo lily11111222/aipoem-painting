@@ -167,7 +167,7 @@ public class AnimationRequestActivity extends AppCompatActivity {
             public void run() {
                 String outGIFPath;
                 try {
-                    File file = getFilesDir();;
+                    File file = getFilesDir();
                     Log.d("lily", file.toString());
 //        String filePath = "/data/data/com.example.poemheavenjava/cache/chaquopy/tmp";
                     outGIFPath = AsyncAnimationRequest.generateAnimatorNoSync(

@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -32,7 +31,7 @@ public class DrawingActivity extends AppCompatActivity implements View.OnClickLi
     private ImageButton blackBtn,whiteBtn,redBtn,blueBtn,grayBtn,cyanBtn,currentColorBtn;
     private DrawingBoardView drawingBoardView;
     private View selectColorBoxView;
-    private Button btn_save;
+    private Button btn_save, btn_animate;
     private Toolbar toolbar;
     private MyApplication mApp = MyApplication.getInstance();
 
@@ -53,10 +52,12 @@ public class DrawingActivity extends AppCompatActivity implements View.OnClickLi
         toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(v -> finish());
         findViewById(R.id.btn_next).setOnClickListener(this);
+        mApp.setHandDrawItem(null);
     }
 
     private void initView(){
         btn_save = findViewById(R.id.btn_save);
+        btn_animate = findViewById(R.id.btn_animate);
         paintBtn = findViewById(R.id.paint);
         fillPaintBtn = findViewById(R.id.fillPaint);
         //rubberBtn = findViewById(R.id.rubber);
@@ -101,6 +102,7 @@ public class DrawingActivity extends AppCompatActivity implements View.OnClickLi
         rightAngleBtn.setOnClickListener(this);
         cyanBtn.setOnClickListener(this);
         btn_save.setOnClickListener(this);
+        btn_animate.setOnClickListener(this);
     }
 
     @Override
@@ -111,7 +113,7 @@ public class DrawingActivity extends AppCompatActivity implements View.OnClickLi
                     BitmapDrawable drawable = new BitmapDrawable(createBitmapFromView(drawingBoardView));
                     mApp.setBackground(drawable);
                     //String filePath = save();
-                    Intent intent1 = new Intent(this, BackgroundSelectActivity2.class);
+                    Intent intent1 = new Intent(this, BackgroundSelectActivity.class);
                     //intent.putExtra("paintBgPath", filePath);
                     intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent1);
@@ -125,8 +127,32 @@ public class DrawingActivity extends AppCompatActivity implements View.OnClickLi
                     break;
             }
 
-        }
-        else if(v.getId() == R.id.paint){
+        } else if (v.getId() == R.id.btn_animate) {
+            // 生成动作
+            Bitmap bitmap = createBitmapFromViewWithWhiteBack(drawingBoardView);
+            String filePath = getFilesDir() + "staticHand.jpeg";
+            File file = new File(filePath);
+            try {
+                // 创建文件输出流
+                FileOutputStream fos = new FileOutputStream(file);
+
+                // 将 Bitmap 压缩到文件输出流中
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+
+                // 关闭文件输出流
+                fos.close();
+
+                // 文件保存成功
+                // 此时你可以在 file 对象中找到保存的文件
+                Intent intent = new Intent(this, AnimatedDrawingActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("staticHand", filePath);
+                startActivity(intent);
+            } catch (IOException e) {
+                e.printStackTrace();
+                // 文件保存失败
+            }
+        } else if(v.getId() == R.id.paint){
             setSelectBtn(paintBtn);
             drawingBoardView.setPaint("paint");
             selectColorBoxView.setVisibility(View.VISIBLE);
@@ -246,6 +272,15 @@ public class DrawingActivity extends AppCompatActivity implements View.OnClickLi
 //        canvas.drawBitmap(bitmap, 0, 0, null);
 //        holder.unlockCanvasAndPost(canvas);
         return view.saveToBitmap();
+    }
+    private Bitmap createBitmapFromViewWithWhiteBack(DrawingBoardView view) {
+//        SurfaceHolder holder = view.getHolder();
+//        Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+//        Canvas canvas = holder.lockCanvas();
+//        view.layout(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
+//        canvas.drawBitmap(bitmap, 0, 0, null);
+//        holder.unlockCanvasAndPost(canvas);
+        return view.saveToBitmapWithWhiteBack();
     }
 
     private void saveBitmapToFile(Bitmap bitmap, String fileName) {

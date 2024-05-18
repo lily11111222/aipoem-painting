@@ -24,12 +24,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.poemheavenjava.entity.Item;
 import com.example.poemheavenjava.utils.PcmToWavUtil;
@@ -194,7 +192,20 @@ public class DubActivity extends AppCompatActivity implements View.OnClickListen
                 gifDrawable.start();
                 //把每个item的view放进数组，方便后面运动
                 item_views.add(iv);
-            } else {
+            } else if (item.getAnimType() == Item.animTypes.GENEGIF) {
+                //创建一个新的ImageView
+                //添加上每个Item
+                iv = new GifImageView(this);
+                // 设置Drawable
+                iv.setImageDrawable(item.getGifDrawable());
+                gif_v_list.add((GifImageView) iv);
+                //设置缩放类型
+                iv.setScaleType(ImageView.ScaleType.MATRIX);
+                //设置位置和大小
+                iv.setImageMatrix(item.getMatrix());
+                //把每个item的view放进数组，方便后面运动
+                item_views.add(iv);
+            }  else {
                 //创建一个新的ImageView
                 //添加上每个Item
                 iv = new ImageView(this);
@@ -273,6 +284,17 @@ public class DubActivity extends AppCompatActivity implements View.OnClickListen
                 //设置位置和大小
                 iv.setImageMatrix(item.getMatrix());
                 gifDrawable.start();
+            } else if (item.getAnimType() == Item.animTypes.GENEGIF) {
+                //创建一个新的ImageView
+                //添加上每个Item
+                iv = new GifImageView(this);
+                // 设置Drawable
+                iv.setImageDrawable(item.getGifDrawable());
+                gif_v_list.add((GifImageView) iv);
+                //设置缩放类型
+                iv.setScaleType(ImageView.ScaleType.MATRIX);
+                //设置位置和大小
+                iv.setImageMatrix(item.getMatrix());
                 //把每个item的view放进数组，方便后面运动
                 item_views.add(iv);
             } else {

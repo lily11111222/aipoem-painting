@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -43,7 +42,7 @@ public class BackgroOptionSelectActivity extends AppCompatActivity implements Vi
 //            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         } else if (v.getId() == R.id.ll_back_db) {
-            Intent intent = new Intent(this, BackgroundSelectActivity2.class);
+            Intent intent = new Intent(this, BackgroundSelectActivity.class);
 //            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }

@@ -196,8 +196,9 @@ public class DubActivity extends AppCompatActivity implements View.OnClickListen
                 //创建一个新的ImageView
                 //添加上每个Item
                 iv = new GifImageView(this);
+                GifDrawable gifDrawable = item.getGifDrawable();
                 // 设置Drawable
-                iv.setImageDrawable(item.getGifDrawable());
+                iv.setImageDrawable(gifDrawable);
                 gif_v_list.add((GifImageView) iv);
                 //设置缩放类型
                 iv.setScaleType(ImageView.ScaleType.MATRIX);
@@ -205,6 +206,7 @@ public class DubActivity extends AppCompatActivity implements View.OnClickListen
                 iv.setImageMatrix(item.getMatrix());
                 //把每个item的view放进数组，方便后面运动
                 item_views.add(iv);
+                gifDrawable.start();
             }  else {
                 //创建一个新的ImageView
                 //添加上每个Item
@@ -288,8 +290,9 @@ public class DubActivity extends AppCompatActivity implements View.OnClickListen
                 //创建一个新的ImageView
                 //添加上每个Item
                 iv = new GifImageView(this);
+                GifDrawable gifDrawable = item.getGifDrawable();
                 // 设置Drawable
-                iv.setImageDrawable(item.getGifDrawable());
+                iv.setImageDrawable(gifDrawable);
                 gif_v_list.add((GifImageView) iv);
                 //设置缩放类型
                 iv.setScaleType(ImageView.ScaleType.MATRIX);
@@ -297,6 +300,7 @@ public class DubActivity extends AppCompatActivity implements View.OnClickListen
                 iv.setImageMatrix(item.getMatrix());
                 //把每个item的view放进数组，方便后面运动
                 item_views.add(iv);
+                gifDrawable.start();
             } else {
                 //创建一个新的ImageView
                 //添加上每个Item

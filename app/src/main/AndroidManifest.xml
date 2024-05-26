@@ -29,6 +29,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".TeachActivity"
+            android:exported="false" />
+        <activity
             android:name=".AnimatedDrawingActivity"
             android:exported="false" />
         <activity

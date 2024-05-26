@@ -167,13 +167,15 @@ public class SetActionTimeActivity extends AppCompatActivity implements View.OnC
                 //创建一个新的ImageView
                 //添加上每个Item
                 iv = new GifImageView(this);
+                GifDrawable gifDrawable = item.getGifDrawable();
                 // 设置Drawable
-                iv.setImageDrawable(item.getGifDrawable());
+                iv.setImageDrawable(gifDrawable);
                 gif_v_list.add((GifImageView) iv);
                 //设置缩放类型
                 iv.setScaleType(ImageView.ScaleType.MATRIX);
                 //设置位置和大小
                 iv.setImageMatrix(item.getMatrix());
+                gifDrawable.start();
             } else {
                 //创建一个新的ImageView
                 //添加上每个Item

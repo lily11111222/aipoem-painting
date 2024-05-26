@@ -156,7 +156,9 @@ public class AnimatedDrawingActivity extends AppCompatActivity {
                 }else if (motion_str.equals("跳一跳")) {
                     actionName = "jump";
                 }else if (motion_str.equals("挥手")) {
-                    actionName = "wave_hello";
+                    actionName = "wave";
+                }else if (motion_str.equals("走路")) {
+                    actionName = "walk";
                 }
             }
         });

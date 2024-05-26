@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        Typeface mtypeface=Typeface.createFromAsset(getAssets(),"font/handwriting.ttf");
 //        title.setTypeface(mtypeface);
         findViewById(R.id.btn_begin).setOnClickListener(this);
-        findViewById(R.id.btn_test).setOnClickListener(this);
+        findViewById(R.id.btn_teach).setOnClickListener(this);
     }
 
     @Override
@@ -28,8 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            Intent intent = new Intent(this, AnimationRequestActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
-        }else if(v.getId() == R.id.btn_test){
-            Intent intent = new Intent(this, TestActivity.class);
+        }
+        else if(v.getId() == R.id.btn_teach){
+            Intent intent = new Intent(this, TeachActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }

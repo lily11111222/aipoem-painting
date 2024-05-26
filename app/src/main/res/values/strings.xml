@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">爱诗画</string>
     <string name="title">爱诗画</string>
+    <string name="teach">使用教程</string>
     <string name="poem_select">诗歌选择</string>
     <string name="backgroud_option">背景选项</string>
     <string name="backgroud_select">背景选择</string>

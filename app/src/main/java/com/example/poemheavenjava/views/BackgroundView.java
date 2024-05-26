@@ -96,6 +96,7 @@ public class BackgroundView extends RelativeLayout {
                     itemMove.getEndMatrix().postTranslate(pos[0] - pos0[0], pos[1] - pos0[1]);
                     item_views.get(i).setImageMatrix(itemMove.getEndMatrix());
                     //canvas.restore();
+                    if(itemMove.getmAnimatorValue() == 1) item_views.get(i).setVisibility(INVISIBLE);
                 }
             }
         }

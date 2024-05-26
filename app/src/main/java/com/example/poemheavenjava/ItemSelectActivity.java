@@ -187,7 +187,8 @@ public class ItemSelectActivity extends AppCompatActivity implements View.OnClic
     private void getGeneGif() {
         if (mApp.getGeneGif() == null) return;
         GifImageView gif_iv = new GifImageView(this);
-        gif_iv.setImageDrawable(mApp.getGeneGif());
+        GifDrawable gifDrawable = mApp.getGeneGif();
+        gif_iv.setImageDrawable(gifDrawable);
         //设置图片的位置
         gif_iv.setScaleType(ImageView.ScaleType.FIT_CENTER);
         //设置播放
@@ -202,7 +203,7 @@ public class ItemSelectActivity extends AppCompatActivity implements View.OnClic
             setRouteButtonNotValid();
             //在背景中添加一个新的view
             GifImageView new_gif_v = new GifImageView(this);
-            new_gif_v.setImageDrawable(mApp.getGeneGif());
+            new_gif_v.setImageDrawable(gifDrawable);
             new_gif_v.setOnTouchListener(this);
             //添加新视图
             rl_bg.addView(new_gif_v, newParams);
@@ -213,6 +214,7 @@ public class ItemSelectActivity extends AppCompatActivity implements View.OnClic
             setRoute(item, new_gif_v);
             mApp.addAItem(item);
         });
+        gifDrawable.start();
        //把每一首item的视图添加到网格布局中
         linear_layout.addView(gif_iv, newParams);
     }

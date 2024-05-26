@@ -8,7 +8,7 @@ public class BackgroundImg {
     //private Bitmap bg_img;
 
     private static String[] bg_names = {
-            "bg1", "bg2", "bg7", "bg8", "bg4", "bg5", "bg6", "bg3"
+            "bg1", "bg9", "bg2", "bg7", "bg8", "bg4", "bg5", "bg6", "bg3"
     };
     public static List<String> getDefaultBgList() {
         List<String> bgs = new ArrayList<>();
